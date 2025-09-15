@@ -467,9 +467,9 @@ function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <div className="space-y-2 text-gray-400">
-                <p>📧 info@mjdesignden.com</p>
-                <p>📞 +91 72045 01314</p>
-                <p>📍 Muneshwara Nagar, Bangalore, India, 560068</p>
+                <p>📧 info@shivshaktifurniture.com</p>
+                <p>📞 +91 6353969698</p>
+                <p>📍 Ahmedabad, Gujarat 380050, INDIA</p>
               </div>
             </div>
           </div>
