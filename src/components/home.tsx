@@ -215,7 +215,7 @@ function Home() {
       </section>
 
       {/* Spotlight Collections */}
-      <section className="py-10 px-4 sm:px-6 lg:px-8">
+      <section className="py-10 px-4 sm:px-6 lg:px-8" id="collection">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
           <Card className="overflow-hidden">
             <div className="grid md:grid-cols-2 items-stretch">
