@@ -50,7 +50,7 @@ const categories = [
   },
   {
     name: 'Dressing Tables',
-    icon: '💄',
+    icon: '����',
     image: 'https://images.unsplash.com/photo-1595428821877-cbebe1149bbb?w=800&q=80',
     description: 'Elegant dressing tables with mirrors and organized storage solutions.'
   },
@@ -256,7 +256,7 @@ function Home() {
       </section>
 
       {/* Featured Collections */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8" id="collection">
+      <section className="hidden">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-3xl font-bold text-gray-900">Featured Collections</h3>
