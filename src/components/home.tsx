@@ -51,7 +51,7 @@ const categories = [
   {
     name: 'Dressing Tables',
     icon: '����',
-    image: 'https://images.unsplash.com/photo-1595428821877-cbebe1149bbb?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1635108197695-05184e426907?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     description: ''
   },
   {
@@ -409,7 +409,7 @@ function Home() {
             <Button size="lg" variant="secondary" className="bg-white text-amber-600 hover:bg-gray-50">
               Schedule Consultation
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-amber-600">
+            <Button size="lg" variant="outline" className="border-white text-amber-600 hover:bg-white hover:bg-gray-50">
               View Our Portfolio
             </Button>
           </div>
@@ -474,7 +474,7 @@ function Home() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
-            <p>&copy; 2024 MJ Design Den. All rights reserved.</p>
+            <p>&copy; 2025 MJ Design Den. All rights reserved.</p>
           </div>
         </div>
       </footer>
