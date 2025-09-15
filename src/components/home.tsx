@@ -188,7 +188,7 @@ function Home() {
                           {s.cta}
                         </Button>
                         <a href="#collection">
-                          <Button variant="outline" className="border-white text-white hover:bg-white hover:text-amber-600">
+                          <Button variant="outline" className="border-white text-amber-600 hover:bg-white hover:text-amber-700">
                             Explore Collection
                           </Button>
                         </a>
