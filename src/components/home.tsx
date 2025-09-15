@@ -36,7 +36,7 @@ const featuredProducts = [
     name: 'Grand Dining Table',
     category: 'Dining Tables',
     price: '₹75,000',
-    image: 'https://images.unsplash.com/photo-1615066390971-03e8b0275a0f?w=800&q=80',
+    image: 'https://plus.unsplash.com/premium_photo-1673214881759-4bd60b76acae?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     description: '8-seater dining table crafted from solid teak wood with elegant design.'
   }
 ];
