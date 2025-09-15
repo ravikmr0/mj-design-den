@@ -63,7 +63,7 @@ const categories = [
   {
     name: 'Dining Tables',
     icon: '🍽️',
-    image: 'https://images.unsplash.com/photo-1615066390971-03e8b0275a0f?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1643913591623-4335627a1677?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     description: 'Beautiful dining tables for memorable family gatherings.'
   },
   {
