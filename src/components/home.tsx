@@ -3,7 +3,7 @@ import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "./ui/carousel";
-import { ChevronRight, Star, Award, Palette, DollarSign } from "lucide-react";
+import { ChevronRight, Star, Award, Palette, DollarSign, Instagram, Facebook, Youtube, Linkedin } from "lucide-react";
 import Header from "./Header";
 
 const featuredProducts = [
@@ -420,18 +420,40 @@ function Home() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
+                <div className="w-9 h-9 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold">MJ</span>
                 </div>
                 <span className="text-xl font-bold">MJ Design Den</span>
               </div>
-              <p className="text-gray-400">
-                Creating furniture that blends elegance, comfort, and functionality for your perfect space in Bangalore.
-              </p>
+              <p className="text-gray-400">Creating furniture that blends elegance, comfort, and functionality for your perfect space.</p>
+              <div className="mt-6 flex items-center gap-3">
+                <button type="button" aria-label="Instagram" className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                  <Instagram className="h-5 w-5" />
+                </button>
+                <button type="button" aria-label="Facebook" className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                  <Facebook className="h-5 w-5" />
+                </button>
+                <button type="button" aria-label="YouTube" className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                  <Youtube className="h-5 w-5" />
+                </button>
+                <button type="button" aria-label="LinkedIn" className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                  <Linkedin className="h-5 w-5" />
+                </button>
+              </div>
             </div>
+
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#about" className="hover:text-white">About Us</a></li>
+                <li><a href="#collection" className="hover:text-white">Our Collection</a></li>
+                <li><a href="#custom" className="hover:text-white">Custom Designs</a></li>
+              </ul>
+            </div>
+
             <div>
               <h4 className="text-lg font-semibold mb-4">Our Services</h4>
               <ul className="space-y-2 text-gray-400">
@@ -441,8 +463,9 @@ function Home() {
                 <li>Material Selection</li>
               </ul>
             </div>
+
             <div>
-              <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
+              <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <div className="space-y-2 text-gray-400">
                 <p>📧 info@mjdesignden.com</p>
                 <p>📞 +91 72045 01314</p>
@@ -450,7 +473,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
             <p>&copy; 2024 MJ Design Den. All rights reserved.</p>
           </div>
         </div>
