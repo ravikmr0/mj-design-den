@@ -416,47 +416,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white" id="contact">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Get In Touch</h3>
-            <p className="text-lg text-gray-600">Ready to start your furniture journey? Contact us today!</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-600">
-                  📞
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">Call Us</h4>
-                <p className="text-gray-600">+91 72045 01314</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-600">
-                  📧
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">Email Us</h4>
-                <p className="text-gray-600">info@mjdesignden.com</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-600">
-                  📍
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">Visit Us</h4>
-                <p className="text-gray-600">Muneshwara Nagar, Bangalore, India, 560068</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
