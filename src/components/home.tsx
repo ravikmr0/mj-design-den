@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
-import { ChevronRight, Star, Award, Palette, DollarSign } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "./ui/carousel";
+import { ChevronRight, Star, Award, Palette, DollarSign, Instagram, Facebook, Youtube, Linkedin } from "lucide-react";
 import Header from "./Header";
 
 const featuredProducts = [
@@ -50,7 +50,7 @@ const categories = [
   },
   {
     name: 'Dressing Tables',
-    icon: '💄',
+    icon: '����',
     image: 'https://images.unsplash.com/photo-1595428821877-cbebe1149bbb?w=800&q=80',
     description: 'Elegant dressing tables with mirrors and organized storage solutions.'
   },
@@ -105,6 +105,53 @@ const whyChooseUs = [
 
 function Home() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const slides = [
+    {
+      image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600&q=80",
+      title: "Crafted Comfort for Every Home",
+      subtitle: "Premium sofas and lounge seating tailored to your lifestyle.",
+      cta: "Shop Sofas"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1615066390971-03e8b0275a0f?w=1600&q=80",
+      title: "Gather Around in Style",
+      subtitle: "Elegant dining tables designed for memorable meals.",
+      cta: "View Dining"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600&q=80",
+      title: "Sleep Better, Live Better",
+      subtitle: "Beds that blend luxury, support, and timeless design.",
+      cta: "Browse Beds"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1600&q=80",
+      title: "Storage, Simplified Beautifully",
+      subtitle: "Smart wardrobes crafted to maximize space and style.",
+      cta: "Explore Wardrobes"
+    }
+  ];
+  const [heroApi, setHeroApi] = useState<CarouselApi | null>(null);
+  const [isHover, setIsHover] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (!heroApi || isHover) return;
+    const id = window.setInterval(() => {
+      heroApi.scrollNext();
+    }, 3500);
+    return () => window.clearInterval(id);
+  }, [heroApi, isHover]);
+
+  useEffect(() => {
+    if (!heroApi) return;
+    const onSelect = () => setSelectedIndex(heroApi.selectedScrollSnap());
+    heroApi.on("select", onSelect);
+    onSelect();
+    return () => {
+      heroApi.off("select", onSelect);
+    };
+  }, [heroApi]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50">
@@ -112,22 +159,104 @@ function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Furniture that blends{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">
-              elegance, comfort & functionality
-            </span>
-          </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            From classic designs to modern innovations, every piece is tailored to reflect your lifestyle and space.
-          </p>
+      <section
+        className="relative px-4 sm:px-6 lg:px-8 pt-4"
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+      >
+        <Carousel className="w-full" opts={{ loop: true }} setApi={setHeroApi}>
+          <CarouselContent>
+            {slides.map((s, idx) => (
+              <CarouselItem key={idx}>
+                <div className="relative h-[60vh] sm:h-[70vh] lg:h-[80vh] rounded-2xl overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                  <div className="absolute bottom-10 left-6 right-6 sm:left-12 sm:right-12">
+                    <div className="max-w-3xl">
+                      <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+                        {s.title}
+                      </h2>
+                      <p className="text-lg sm:text-xl text-white/85 mb-6">
+                        {s.subtitle}
+                      </p>
+                      <div className="flex flex-wrap gap-3">
+                        <Button className="bg-gradient-to-r from-amber-600 to-orange-600 text-white hover:from-amber-700 hover:to-orange-700">
+                          {s.cta}
+                        </Button>
+                        <a href="#collection">
+                          <Button variant="outline" className="border-white text-white hover:bg-white hover:text-amber-600">
+                            Explore Collection
+                          </Button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="flex left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg z-20" />
+          <CarouselNext className="flex right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg z-20" />
+        </Carousel>
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Go to slide ${i + 1}`}
+              onClick={() => heroApi?.scrollTo(i)}
+              className={`h-2.5 w-2.5 rounded-full ${selectedIndex === i ? "bg-white" : "bg-white/50"}`}
+            />
+          ))}
         </div>
       </section>
 
-      {/* Featured Carousel */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8" id="collection">
+      {/* Spotlight Collections */}
+      <section className="py-10 px-4 sm:px-6 lg:px-8" id="collection">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <Card className="overflow-hidden">
+            <div className="grid md:grid-cols-2 items-stretch">
+              <div className="relative md:order-2">
+                <img
+                  src="https://images.unsplash.com/photo-1615066390971-03e8b0275a0f?w=1200&q=80"
+                  alt="Grand Dining Tables"
+                  className="w-full h-full object-cover aspect-[4/3] md:aspect-[16/9] lg:aspect-[16/8]"
+                />
+                <span className="absolute top-4 left-4 px-2.5 py-1 rounded-md bg-amber-100 text-amber-700 text-xs font-medium">Dining</span>
+              </div>
+              <div className="p-8 md:order-1 flex flex-col justify-center">
+                <h4 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">Grand Dining Tables</h4>
+                <p className="text-gray-600 mb-6 text-base md:text-lg">Elegant solid-wood dining tables crafted for family gatherings and entertaining, finished to perfection.</p>
+                <Button size="lg" className="w-fit bg-amber-600 hover:bg-amber-700 text-white">View Dining Collection</Button>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="overflow-hidden">
+            <div className="grid md:grid-cols-2 items-stretch">
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&q=80"
+                  alt="Comfort-First Beds"
+                  className="w-full h-full object-cover aspect-[4/3] md:aspect-[16/9] lg:aspect-[16/8]"
+                />
+                <span className="absolute top-4 left-4 px-2.5 py-1 rounded-md bg-amber-100 text-amber-700 text-xs font-medium">Beds</span>
+              </div>
+              <div className="p-8 flex flex-col justify-center">
+                <h4 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">Comfort-First Beds</h4>
+                <p className="text-gray-600 mb-6 text-base md:text-lg">Premium frames and headboards paired with cozy finishes for restful, luxurious sleep.</p>
+                <Button size="lg" className="w-fit bg-amber-600 hover:bg-amber-700 text-white">View Bed Collection</Button>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Featured Collections */}
+      <section className="hidden">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-3xl font-bold text-gray-900">Featured Collections</h3>
@@ -287,63 +416,44 @@ function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white" id="contact">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Get In Touch</h3>
-            <p className="text-lg text-gray-600">Ready to start your furniture journey? Contact us today!</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-600">
-                  📞
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">Call Us</h4>
-                <p className="text-gray-600">+91 72045 01314</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-600">
-                  📧
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">Email Us</h4>
-                <p className="text-gray-600">info@mjdesignden.com</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-600">
-                  📍
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">Visit Us</h4>
-                <p className="text-gray-600">Muneshwara Nagar, Bangalore, India, 560068</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
+                <div className="w-9 h-9 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold">MJ</span>
                 </div>
                 <span className="text-xl font-bold">MJ Design Den</span>
               </div>
-              <p className="text-gray-400">
-                Creating furniture that blends elegance, comfort, and functionality for your perfect space in Bangalore.
-              </p>
+              <p className="text-gray-400">Creating furniture that blends elegance, comfort, and functionality for your perfect space.</p>
+              <div className="mt-6 flex items-center gap-3">
+                <button type="button" aria-label="Instagram" className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                  <Instagram className="h-5 w-5" />
+                </button>
+                <button type="button" aria-label="Facebook" className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                  <Facebook className="h-5 w-5" />
+                </button>
+                <button type="button" aria-label="YouTube" className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                  <Youtube className="h-5 w-5" />
+                </button>
+                <button type="button" aria-label="LinkedIn" className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                  <Linkedin className="h-5 w-5" />
+                </button>
+              </div>
             </div>
+
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#about" className="hover:text-white">About Us</a></li>
+                <li><a href="#collection" className="hover:text-white">Our Collection</a></li>
+                <li><a href="#custom" className="hover:text-white">Custom Designs</a></li>
+              </ul>
+            </div>
+
             <div>
               <h4 className="text-lg font-semibold mb-4">Our Services</h4>
               <ul className="space-y-2 text-gray-400">
@@ -353,8 +463,9 @@ function Home() {
                 <li>Material Selection</li>
               </ul>
             </div>
+
             <div>
-              <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
+              <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <div className="space-y-2 text-gray-400">
                 <p>📧 info@mjdesignden.com</p>
                 <p>📞 +91 72045 01314</p>
@@ -362,7 +473,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
             <p>&copy; 2024 MJ Design Den. All rights reserved.</p>
           </div>
         </div>
