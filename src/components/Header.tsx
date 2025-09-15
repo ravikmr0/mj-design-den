@@ -25,12 +25,12 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo with Home Link */}
           <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
-            <div className="w-10 h-10 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
+{/*              */}<div className="w-10 h-10 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">MJ</span>
             </div>
             <div>
               <h1 className="text-2xl font-bold text-gray-900">MJ Design Den</h1>
-              <p className="text-xs text-gray-600">Premium Custom Furniture</p>
+{/*               <p className="text-xs text-gray-600">Premium Custom Furniture</p> */}
             </div>
           </a>
 
