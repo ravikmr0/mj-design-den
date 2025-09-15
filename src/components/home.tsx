@@ -113,7 +113,7 @@ function Home() {
       cta: "Shop Sofas"
     },
     {
-      image: "https://images.unsplash.com/photo-1615066390971-03e8b0275a0f?w=1600&q=80",
+      image: "https://images.unsplash.com/photo-1636138390540-de85ed519d40?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Gather Around in Style",
       subtitle: "Elegant dining tables designed for memorable meals.",
       cta: "View Dining"
