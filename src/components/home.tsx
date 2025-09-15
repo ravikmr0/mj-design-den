@@ -199,8 +199,8 @@ function Home() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex bg-white/90 hover:bg-white shadow-lg" />
-          <CarouselNext className="hidden sm:flex bg-white/90 hover:bg-white shadow-lg" />
+          <CarouselPrevious className="flex left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg z-20" />
+          <CarouselNext className="flex right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg z-20" />
         </Carousel>
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
           {slides.map((_, i) => (
