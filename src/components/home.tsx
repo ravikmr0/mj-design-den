@@ -216,21 +216,21 @@ function Home() {
 
       {/* Spotlight Collections */}
       <section className="py-10 px-4 sm:px-6 lg:px-8" id="collection">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
           <Card className="overflow-hidden">
             <div className="grid md:grid-cols-2 items-stretch">
               <div className="relative md:order-2">
                 <img
                   src="https://images.unsplash.com/photo-1615066390971-03e8b0275a0f?w=1200&q=80"
                   alt="Grand Dining Tables"
-                  className="w-full h-full object-cover md:h-full aspect-[16/10]"
+                  className="w-full h-full object-cover aspect-[4/3] md:aspect-[16/9] lg:aspect-[16/8]"
                 />
                 <span className="absolute top-4 left-4 px-2.5 py-1 rounded-md bg-amber-100 text-amber-700 text-xs font-medium">Dining</span>
               </div>
-              <div className="p-6 md:order-1 flex flex-col justify-center">
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">Grand Dining Tables</h4>
-                <p className="text-gray-600 mb-4">Elegant solid-wood dining tables crafted for family gatherings and entertaining, finished to perfection.</p>
-                <Button className="w-fit bg-amber-600 hover:bg-amber-700 text-white">View Dining Collection</Button>
+              <div className="p-8 md:order-1 flex flex-col justify-center">
+                <h4 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">Grand Dining Tables</h4>
+                <p className="text-gray-600 mb-6 text-base md:text-lg">Elegant solid-wood dining tables crafted for family gatherings and entertaining, finished to perfection.</p>
+                <Button size="lg" className="w-fit bg-amber-600 hover:bg-amber-700 text-white">View Dining Collection</Button>
               </div>
             </div>
           </Card>
@@ -241,14 +241,14 @@ function Home() {
                 <img
                   src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&q=80"
                   alt="Comfort-First Beds"
-                  className="w-full h-full object-cover md:h-full aspect-[16/10]"
+                  className="w-full h-full object-cover aspect-[4/3] md:aspect-[16/9] lg:aspect-[16/8]"
                 />
                 <span className="absolute top-4 left-4 px-2.5 py-1 rounded-md bg-amber-100 text-amber-700 text-xs font-medium">Beds</span>
               </div>
-              <div className="p-6 flex flex-col justify-center">
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">Comfort-First Beds</h4>
-                <p className="text-gray-600 mb-4">Premium frames and headboards paired with cozy finishes for restful, luxurious sleep.</p>
-                <Button className="w-fit bg-amber-600 hover:bg-amber-700 text-white">View Bed Collection</Button>
+              <div className="p-8 flex flex-col justify-center">
+                <h4 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">Comfort-First Beds</h4>
+                <p className="text-gray-600 mb-6 text-base md:text-lg">Premium frames and headboards paired with cozy finishes for restful, luxurious sleep.</p>
+                <Button size="lg" className="w-fit bg-amber-600 hover:bg-amber-700 text-white">View Bed Collection</Button>
               </div>
             </div>
           </Card>
