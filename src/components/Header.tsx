@@ -15,7 +15,7 @@ const Header = () => {
     { name: "Contact", href: "#contact" }
   ];
 
-  const phoneNumber = "+917204501314";
+  const phoneNumber = "+916353969698";
 
   return (
     <header className="bg-white shadow-sm border-b sticky top-0 z-50">
@@ -29,7 +29,7 @@ const Header = () => {
               <span className="text-white font-bold text-lg">MJ</span>
             </div> */}
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">MJ Design Den</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Shiv Shakti Furniture</h1>
                {/*<p className="text-xs text-gray-600">Premium Custom Furniture</p> */}
             </div>
           </a>
@@ -176,11 +176,11 @@ const Header = () => {
                   <div className="pt-4 border-t space-y-3">
                     <div className="flex items-center space-x-3 text-gray-600">
                       <Phone className="w-4 h-4" />
-                      <span>+91 72045 01314</span>
+                      <span>+91 6353969698</span>
                     </div>
                     <div className="flex items-center space-x-3 text-gray-600">
                       <Mail className="w-4 h-4" />
-                      <span>info@mjdesignden.com</span>
+                      <span>info@shivshaktifurniture.com</span>
                     </div>
                   </div>
                 </div>

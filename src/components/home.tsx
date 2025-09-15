@@ -12,7 +12,7 @@ const featuredProducts = [
     name: 'Royal Oak Wardrobe',
     category: 'Wardrobes',
     price: '₹85,000',
-    image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80',
+    image: 'https://images.nsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80',
     description: 'Spacious 4-door wardrobe with premium oak finish and soft-close hinges.'
   },
   {
@@ -359,9 +359,9 @@ function Home() {
       <section className="py-12 px-4 sm:px-6 lg:px-8" id="about">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">About MJ Design Den</h3>
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">About Shiv Shakti</h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Located in the heart of Bangalore, MJ Design Den specializes in creating furniture that blends elegance, comfort, and functionality. 
+              Located in the heart of India, Shiv Shakti Furniture specializes in creating furniture that blends elegance, comfort, and functionality. 
               From classic designs to modern innovations, every piece is tailored to reflect your lifestyle and space.
             </p>
           </div>
@@ -373,7 +373,7 @@ function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Us?</h3>
-            <p className="text-lg text-gray-600">What makes MJ Design Den special</p>
+            <p className="text-lg text-gray-600">What makes Shiv Shakti Furniture special</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -426,7 +426,7 @@ function Home() {
                 <div className="w-9 h-9 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold">MJ</span>
                 </div>
-                <span className="text-xl font-bold">MJ Design Den</span>
+                <span className="text-xl font-bold">Shiv Shakti Furniture </span>
               </div>
               <p className="text-gray-400">Creating furniture that blends elegance, comfort, and functionality for your perfect space.</p>
               <div className="mt-6 flex items-center gap-3">
@@ -474,7 +474,7 @@ function Home() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
-            <p>&copy; 2025 MJ Design Den. All rights reserved.</p>
+            <p>&copy; 2025 Shiv Shakti Furniture. All rights reserved.</p>
           </div>
         </div>
       </footer>
