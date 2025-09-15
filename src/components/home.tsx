@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "./ui/carousel";
 import { ChevronRight, Star, Award, Palette, DollarSign } from "lucide-react";
 import Header from "./Header";
 
@@ -105,6 +105,53 @@ const whyChooseUs = [
 
 function Home() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const slides = [
+    {
+      image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600&q=80",
+      title: "Crafted Comfort for Every Home",
+      subtitle: "Premium sofas and lounge seating tailored to your lifestyle.",
+      cta: "Shop Sofas"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1615066390971-03e8b0275a0f?w=1600&q=80",
+      title: "Gather Around in Style",
+      subtitle: "Elegant dining tables designed for memorable meals.",
+      cta: "View Dining"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600&q=80",
+      title: "Sleep Better, Live Better",
+      subtitle: "Beds that blend luxury, support, and timeless design.",
+      cta: "Browse Beds"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1600&q=80",
+      title: "Storage, Simplified Beautifully",
+      subtitle: "Smart wardrobes crafted to maximize space and style.",
+      cta: "Explore Wardrobes"
+    }
+  ];
+  const [heroApi, setHeroApi] = useState<CarouselApi | null>(null);
+  const [isHover, setIsHover] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (!heroApi || isHover) return;
+    const id = window.setInterval(() => {
+      heroApi.scrollNext();
+    }, 3500);
+    return () => window.clearInterval(id);
+  }, [heroApi, isHover]);
+
+  useEffect(() => {
+    if (!heroApi) return;
+    const onSelect = () => setSelectedIndex(heroApi.selectedScrollSnap());
+    heroApi.on("select", onSelect);
+    onSelect();
+    return () => {
+      heroApi.off("select", onSelect);
+    };
+  }, [heroApi]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50">
@@ -112,17 +159,58 @@ function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Furniture that blends{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">
-              elegance, comfort & functionality
-            </span>
-          </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            From classic designs to modern innovations, every piece is tailored to reflect your lifestyle and space.
-          </p>
+      <section
+        className="relative px-4 sm:px-6 lg:px-8 pt-4"
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+      >
+        <Carousel className="w-full" opts={{ loop: true }} setApi={setHeroApi}>
+          <CarouselContent>
+            {slides.map((s, idx) => (
+              <CarouselItem key={idx}>
+                <div className="relative h-[60vh] sm:h-[70vh] lg:h-[80vh] rounded-2xl overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                  <div className="absolute bottom-10 left-6 right-6 sm:left-12 sm:right-12">
+                    <div className="max-w-3xl">
+                      <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+                        {s.title}
+                      </h2>
+                      <p className="text-lg sm:text-xl text-white/85 mb-6">
+                        {s.subtitle}
+                      </p>
+                      <div className="flex flex-wrap gap-3">
+                        <Button className="bg-gradient-to-r from-amber-600 to-orange-600 text-white hover:from-amber-700 hover:to-orange-700">
+                          {s.cta}
+                        </Button>
+                        <a href="#collection">
+                          <Button variant="outline" className="border-white text-white hover:bg-white hover:text-amber-600">
+                            Explore Collection
+                          </Button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden sm:flex bg-white/90 hover:bg-white shadow-lg" />
+          <CarouselNext className="hidden sm:flex bg-white/90 hover:bg-white shadow-lg" />
+        </Carousel>
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Go to slide ${i + 1}`}
+              onClick={() => heroApi?.scrollTo(i)}
+              className={`h-2.5 w-2.5 rounded-full ${selectedIndex === i ? "bg-white" : "bg-white/50"}`}
+            />
+          ))}
         </div>
       </section>
 
