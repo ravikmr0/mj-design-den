@@ -52,7 +52,7 @@ const categories = [
     name: 'Dressing Tables',
     icon: '����',
     image: 'https://images.unsplash.com/photo-1595428821877-cbebe1149bbb?w=800&q=80',
-    description: 'Elegant dressing tables with mirrors and organized storage solutions.'
+    description: ''
   },
   {
     name: 'Sofas',
@@ -221,7 +221,7 @@ function Home() {
             <div className="grid md:grid-cols-2 items-stretch">
               <div className="relative md:order-2">
                 <img
-                  src="https://images.unsplash.com/photo-1615066390971-03e8b0275a0f?w=1200&q=80"
+                  src="https://images.unsplash.com/photo-1585127580102-15ff5cb422a4?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="Grand Dining Tables"
                   className="w-full h-full object-cover aspect-[4/3] md:aspect-[16/9] lg:aspect-[16/8]"
                 />
