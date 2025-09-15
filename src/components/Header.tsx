@@ -19,26 +19,6 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-sm border-b sticky top-0 z-50">
-      {/* Top Bar */}
-      <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4" />
-                <span>+91 72045 01314</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4" />
-                <span>info@mjdesignden.com</span>
-              </div>
-            </div>
-            <div className="hidden md:block">
-              <span>Premium Custom Furniture • Free Consultation</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Main Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
